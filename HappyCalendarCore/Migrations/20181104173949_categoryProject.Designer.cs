@@ -11,9 +11,10 @@ using System;
 namespace HappyCalendarCore.Migrations
 {
     [DbContext(typeof(HappyCalendarCoreContext))]
-    partial class HappyCalendarCoreContextModelSnapshot : ModelSnapshot
+    [Migration("20181104173949_categoryProject")]
+    partial class categoryProject
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
