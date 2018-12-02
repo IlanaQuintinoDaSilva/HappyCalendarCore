@@ -19,9 +19,22 @@ namespace HappyCalendarCore.Controllers
         }
 
         // GET: Projects
-        public async Task<IActionResult> Index()
+        /*public async Task<IActionResult> Index()
         {
             return View(await _context.Project.ToListAsync());
+        }*/
+
+        // GET: Categories
+        public async Task<IActionResult> Index(string searchString)
+        {
+            var projects = from c in _context.Project
+                             select c;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                projects = projects.Where(s => s.description.Contains(searchString));
+            }
+
+            return View(await projects.ToListAsync());
         }
 
         // GET: Projects/Details/5
